@@ -4,17 +4,17 @@
 
     <%- include("./partials/navbar.ejs") %>
 
-<div class="content">
-    <table class="table">
-        <thead class="thead-dark">
-            <tr id="header">
+    <div class="content">
+        <table class="table">
+            <thead class="thead-dark">
+                <tr id="header">
 
-            </tr>
-        </thead>
-        <tbody id="rows">
-        </tbody>
-    </table>
-</div>
+                </tr>
+            </thead>
+            <tbody id="rows">
+            </tbody>
+        </table>
+    </div>
 
 </body>
 
@@ -32,15 +32,36 @@
             col.innerHTML = key
             header.appendChild(col)
         })
+        var col = document.createElement("th")
+        col.innerHTML = "Actions"
+        header.appendChild(col)
+
         games.forEach(game => {
             var row = document.createElement("tr")
             var values = Object.keys(game)
+            var id = game[values[0]]
 
             values.forEach(value => {
                 var cell = document.createElement("td")
                 cell.innerHTML = game[value]
                 row.appendChild(cell)
             })
+
+            var cell = document.createElement("td")
+            var edit = document.createElement("a")
+            var del = document.createElement("a")
+            edit.href = `/update/${id}`
+            del.href = `/delete/${id}`
+            edit.innerHTML = "Update"
+            del.innerHTML = "Delete"
+            edit.classList.add("btn")
+            edit.classList.add("btn-warning")
+            del.classList.add("btn")
+            del.classList.add("btn-danger")
+            cell.appendChild(edit)
+            cell.appendChild(del)
+            row.appendChild(cell)
+
             rows.appendChild(row)
         })
 
