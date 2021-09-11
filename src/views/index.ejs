@@ -51,7 +51,7 @@
             var edit = document.createElement("a")
             var del = document.createElement("a")
             edit.href = `/update/${id}`
-            del.href = `/delete/${id}`
+            del.href = `javascript:confirmDeletion(${id})`
             edit.innerHTML = "Update"
             del.innerHTML = "Delete"
             edit.classList.add("btn")
@@ -59,6 +59,7 @@
             del.classList.add("btn")
             del.classList.add("btn-danger")
             cell.appendChild(edit)
+            cell.innerHTML += " "
             cell.appendChild(del)
             row.appendChild(cell)
 
@@ -68,6 +69,20 @@
     }).catch(error => {
         console.log(error)
     })
+
+    function confirmDeletion(id) {
+        var decision = confirm("Do you really want to delete this game?")
+        if (decision) {
+            axios.delete("http://localhost:45789/game/" + id).then(response => {
+                alert(response.status)
+                location.reload()
+            }).catch(err => {
+                console.log(err)
+            })
+        } else {
+            alert("Aborted")
+        }
+    }
 </script>
 
 </html>
