@@ -4,7 +4,7 @@ const app = express()
 const path = require('path')
 // Setting express - end
 
-require("dotenv/config")
+require('dotenv/config')
 var restAPI = process.env.RESTAPI
 
 // Setting View Engine - begin

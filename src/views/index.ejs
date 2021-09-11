@@ -23,7 +23,7 @@
 <%- include("./partials/footer.ejs") %>
 
 <script>
-    cont restAPI = document.getElementById("restAPI").value
+    const restAPI = document.getElementById("restAPI").value
 
     axios.get(`${restAPI}/games`).then(response => {
         var games = response.data
