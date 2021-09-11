@@ -33,16 +33,13 @@ app.get("/create", async (req, res) => {
 // route to create - end
 
 // route to update - begin
-app.get("/update", async (req, res) => {
-    res.render("update.ejs")
+app.get("/update/:id", async (req, res) => {
+    var id = req.params.id
+    res.render("update.ejs", {
+        id: id
+    })
 })
 // route to update - end
-
-// route to delete - begin
-app.get("/", async (req, res) => {
-    res.render("delete.ejs")
-})
-// route to delete - end
 
 app.listen(process.env.PORT || 8081, () => {
     console.log("Rodando")
