@@ -1,0 +1,10 @@
+.content{
+    display: flex;
+    width: 80%;
+    margin-right: auto;
+    margin-left: auto;
+}
+
+table{
+    margin-top: 3vh;
+}
