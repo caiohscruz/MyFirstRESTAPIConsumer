@@ -4,6 +4,9 @@ const app = express()
 const path = require('path')
 // Setting express - end
 
+require("dotenv/config")
+var restAPI = process.env.RESTAPI
+
 // Setting View Engine - begin
 app.set('view engine', 'ejs')
 app.set('views', path.join(__dirname, 'views'))
@@ -22,13 +25,17 @@ app.use(express.urlencoded({
 
 // route to index - begin
 app.get("/", async (req, res) => {
-    res.render("index.ejs")
+    res.render("index.ejs", {
+        restAPI: restAPI
+    })
 })
 // route to index - end
 
 // route to create - begin
 app.get("/create", async (req, res) => {
-    res.render("create.ejs")
+    res.render("create.ejs", {
+        restAPI: restAPI
+    })
 })
 // route to create - end
 
@@ -36,7 +43,8 @@ app.get("/create", async (req, res) => {
 app.get("/update/:id", async (req, res) => {
     var id = req.params.id
     res.render("update.ejs", {
-        id: id
+        id: id,
+        restAPI: restAPI
     })
 })
 // route to update - end

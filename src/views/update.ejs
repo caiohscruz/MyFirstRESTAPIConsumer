@@ -29,18 +29,22 @@
         </div>
     </div>
 
+    <input type="hidden" id="restAPI" value="<%= restAPI %>">
+
 </body>
 
 <%- include("./partials/footer.ejs") %>
 
 <script>
+    cont restAPI = document.getElementById("restAPI").value
+
     const id = document.getElementById("id").value
     const titleInput = document.getElementById("title")
     const yearInput = document.getElementById("year")
     const priceInput = document.getElementById("price")
     const btn = document.getElementById("btn")
 
-    axios.get("http://localhost:45789/game/" + id).then(response => {
+    axios.get(`${restAPI}/game/${id}`).then(response => {
         alert(response.status)
         if (response.status == 200) {
             titleInput.disabled = false
@@ -64,7 +68,7 @@
             price: priceInput.value
         }
 
-        axios.put("http://localhost:45789/game/" + id, game).then(response => {
+        axios.put(`${restAPI}/game/${id}`, game).then(response => {
             alert(response.status)
         }).catch(err => {
             console.log(err)
