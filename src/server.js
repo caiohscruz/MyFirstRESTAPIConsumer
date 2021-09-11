@@ -26,6 +26,24 @@ app.get("/", async (req, res) => {
 })
 // route to index - end
 
+// route to create - begin
+app.get("/create", async (req, res) => {
+    res.render("create.ejs")
+})
+// route to create - end
+
+// route to update - begin
+app.get("/update", async (req, res) => {
+    res.render("update.ejs")
+})
+// route to update - end
+
+// route to delete - begin
+app.get("/", async (req, res) => {
+    res.render("delete.ejs")
+})
+// route to delete - end
+
 app.listen(process.env.PORT || 8081, () => {
     console.log("Rodando")
 })
