@@ -48,7 +48,7 @@
             price: priceInput.value
         }
 
-        axios.post(`${restAPI}/game`, game).then(response => {
+        axios.post(`${restAPI}/game`, game, axiosConfig).then(response => {
            alert(response.status)
         }).catch(err => {
             console.log(err)

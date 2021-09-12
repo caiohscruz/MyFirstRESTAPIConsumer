@@ -25,7 +25,7 @@
 <script>
     const restAPI = document.getElementById("restAPI").value
 
-    axios.get(`${restAPI}/games`).then(response => {
+    axios.get(`${restAPI}/games`, axiosConfig).then(response => {
         var games = response.data
         var header = document.getElementById("header")
         var rows = document.getElementById("rows")
@@ -77,7 +77,7 @@
     function confirmDeletion(id) {
         var decision = confirm("Do you really want to delete this game?")
         if (decision) {
-            axios.delete(`${restAPI}/game/${id}`).then(response => {
+            axios.delete(`${restAPI}/game/${id}`, axiosConfig).then(response => {
                 alert(response.status)
                 location.reload()
             }).catch(err => {

@@ -44,7 +44,7 @@
     const priceInput = document.getElementById("price")
     const btn = document.getElementById("btn")
 
-    axios.get(`${restAPI}/game/${id}`).then(response => {
+    axios.get(`${restAPI}/game/${id}`, axiosConfig).then(response => {
         alert(response.status)
         if (response.status == 200) {
             titleInput.disabled = false
@@ -68,7 +68,7 @@
             price: priceInput.value
         }
 
-        axios.put(`${restAPI}/game/${id}`, game).then(response => {
+        axios.put(`${restAPI}/game/${id}`, game, axiosConfig).then(response => {
             alert(response.status)
         }).catch(err => {
             console.log(err)
