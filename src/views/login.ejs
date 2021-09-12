@@ -12,7 +12,7 @@
 
             <div class="card-body">
 
-                <form method="POST" action="/authenticate">
+                <form>
                     <label for="title">E-mail</label>
                     <input type='text' class="form-control" id="email" name="email" placeholder="Informe seu e-mail">
                     <br>
@@ -20,16 +20,16 @@
                     <input type='password' class="form-control" id="password" name="password"
                         placeholder="Digite sua senha">
                     <br>
-                    <button type="submit" class="btn btn-success btn-block">Entrar</button>
+                    <button type="button" class="btn btn-success btn-block" onclick="Login()">Entrar</button>
                 </form>
-                <div style="text-align: center;">
-                    <br>
-                    <a class="dropdown-item" href="/signup">Novo por
-                        aqui? Cadastre-se</a>
-                </div>
+                <div style=" text-align: center;">
+                        <br>
+                        <a class="dropdown-item" href="/signup">Novo por
+                            aqui? Cadastre-se</a>
             </div>
-
         </div>
+
+    </div>
 
     </div>
 
@@ -41,7 +41,25 @@
 <%- include("./partials/footer.ejs") %>
 
 <script>
+    const restAPI = document.getElementById("restAPI").value
 
-const restAPI = document.getElementById("restAPI").value
+    function Login() {
+        var email = document.getElementById("email").value
+        var password = document.getElementById("password").value
+
+        var user = {
+            email: email,
+            password: password
+        }
+
+        axios.post(`${restAPI}/auth`, user).then(response => {
+            alert(response.status)
+            var token = response.data.token
+            alert(token)
+        }).catch(err => {
+            console.log(err)
+            alert("Erro ao criar o usuário, verifique o console")
+        })
+    }
 
 </script>
