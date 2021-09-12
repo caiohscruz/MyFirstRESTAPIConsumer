@@ -29,7 +29,9 @@
         var games = response.data
         var header = document.getElementById("header")
         var rows = document.getElementById("rows")
-
+        
+        if((games!=null)&&(games!=undefined)){
+        
         var keys = Object.keys(games[0]);
         keys.forEach(key => {
             var col = document.createElement("th")
@@ -70,6 +72,7 @@
             rows.appendChild(row)
         })
 
+        }        
     }).catch(error => {
         alert(error)
         location.href+="login"
