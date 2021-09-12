@@ -56,7 +56,7 @@
             alert(response.status)
             var token = response.data.token
             localStorage.setItem("token", token)
-            location.href.replace("login", "home")
+            location.href+="/home"
         }).catch(err => {
             console.log(err)
             alert("Erro ao criar o usuário, verifique o console")
