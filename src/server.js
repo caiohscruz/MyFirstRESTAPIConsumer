@@ -32,7 +32,7 @@ app.get("/", async (req, res) => {
 // route to login page - end
 
 // route to sigup page - begin
-app.get("/", async (req, res) => {
+app.get("/signup", async (req, res) => {
     res.render("signup.ejs", {
         restAPI: restAPI
     })
