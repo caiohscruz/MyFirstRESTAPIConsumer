@@ -24,7 +24,7 @@ app.use(express.urlencoded({
 // Settings to use forms - end
 
 // route to login page - begin
-app.get("/", async (req, res) => {
+app.get("/login", async (req, res) => {
     res.render("login.ejs", {
         restAPI: restAPI
     })
@@ -40,7 +40,7 @@ app.get("/signup", async (req, res) => {
 // route to signup page - end
 
 // route to homepage - begin
-app.get("/home", async (req, res) => {
+app.get("/", async (req, res) => {
     res.render("index.ejs", {
         restAPI: restAPI
     })
