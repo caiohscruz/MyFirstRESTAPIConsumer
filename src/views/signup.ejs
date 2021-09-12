@@ -13,19 +13,20 @@
 
             <div class="card-body">
 
-                <form method="POST" action="/users/save">
+                <form>
                     <label for="title">Username</label>
                     <input type='text' class="form-control" id="username" name="username"
-                        placeholder="Defina um nome de usuário">
+                        placeholder="Defina um nome de usuário" required>
                     <br>
                     <label for="title">Senha</label>
                     <input type='password' class="form-control" id="password" name="password"
-                        placeholder="Digite sua senha">
+                        placeholder="Digite sua senha" required>
                     <br>
                     <label for="title">E-mail</label>
-                    <input type='text' class="form-control" id="email" name="email" placeholder="Informe seu e-mail">
+                    <input type='text' class="form-control" id="email" name="email" placeholder="Informe seu e-mail"
+                        required>
                     <br>
-                    <button type="submit" class="btn btn-success btn-block">Cadastrar</button>
+                    <button type="button" class="btn btn-success btn-block" onclick="Signup()">Cadastrar</button>
                 </form>
                 <div style="text-align: center;">
                     <br>
@@ -36,7 +37,7 @@
         </div>
 
     </div>
-    
+
     <input type="hidden" id="restAPI" value="<%= restAPI %>">
 
 </body>
@@ -46,4 +47,22 @@
 
 <script>
     const restAPI = document.getElementById("restAPI").value
+
+    function Signup() {
+        var email = document.getElementById("email").value
+        var password = document.getElementById("password").value
+        var username = document.getElementById("username").value
+
+        var user = {
+            email: email,
+            password: password
+        }
+
+        axios.post(`${restAPI}/signup`, user).then(response => {
+            alert(response.status)
+            location.href.replace("signup", "login")
+        }).catch(err => {
+            alert(err)
+        })
+    }
 </script>
