@@ -57,7 +57,9 @@
             priceInput.value = response.data.price
         }
     }).catch(error => {
-        console.log(error)
+        alert(error)
+        location.href.replace("create", "")
+
     })
 
     function UpdateGame() {
