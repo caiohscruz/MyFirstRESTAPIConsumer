@@ -23,13 +23,29 @@ app.use(express.urlencoded({
 }))
 // Settings to use forms - end
 
-// route to index - begin
+// route to login page - begin
 app.get("/", async (req, res) => {
+    res.render("login.ejs", {
+        restAPI: restAPI
+    })
+})
+// route to login page - end
+
+// route to sigup page - begin
+app.get("/", async (req, res) => {
+    res.render("signup.ejs", {
+        restAPI: restAPI
+    })
+})
+// route to signup page - end
+
+// route to homepage - begin
+app.get("/home", async (req, res) => {
     res.render("index.ejs", {
         restAPI: restAPI
     })
 })
-// route to index - end
+// route to homepage - end
 
 // route to create - begin
 app.get("/create", async (req, res) => {
