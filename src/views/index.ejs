@@ -30,7 +30,7 @@
         var header = document.getElementById("header")
         var rows = document.getElementById("rows")
         
-        if((games!=null)&&(games!=undefined)){
+        if (typeof Object.keys(games) !== 'undefined' && Object.keys(games).length > 0) {
         
         var keys = Object.keys(games[0]);
         keys.forEach(key => {
