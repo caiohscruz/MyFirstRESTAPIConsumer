@@ -61,7 +61,7 @@
 
         axios.post(`${restAPI}/signup`, user).then(response => {
             alert(response.status)
-            location.href.replace("signup", "login")
+            location.href = location.href.replace("signup", "login")
         }).catch(err => {
             alert(err)
         })
