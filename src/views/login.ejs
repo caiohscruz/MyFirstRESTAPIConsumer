@@ -23,13 +23,13 @@
                     <button type="button" class="btn btn-success btn-block" onclick="Login()">Entrar</button>
                 </form>
                 <div style=" text-align: center;">
-                        <br>
-                        <a class="dropdown-item" href="/signup">Novo por
-                            aqui? Cadastre-se</a>
+                    <br>
+                    <a class="dropdown-item" href="/signup">Novo por
+                        aqui? Cadastre-se</a>
+                </div>
             </div>
-        </div>
 
-    </div>
+        </div>
 
     </div>
 
@@ -56,11 +56,10 @@
             alert(response.status)
             var token = response.data.token
             localStorage.setItem("token", token)
-            location.href.replace("login","")
+            location.href = location.href.replace("login", "")
         }).catch(err => {
             console.log(err)
             alert("Erro ao criar o usuário, verifique o console")
         })
     }
-
 </script>
