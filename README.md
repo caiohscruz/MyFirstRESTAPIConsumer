@@ -1,3 +1,5 @@
+# MyFirstRESTAPIConsumer
+
 ## :computer: Projeto
 
 A proposta deste projeto foi desenvolver uma aplicação simples com um CRUD completo que consumisse uma API REST, que no caso foi desenvolvida em outro projeto, [MyFirstRESTAPI](https://github.com/caiohscruz/MyFirstRESTAPI), e que lidasse com autenticação de cliente com JWT. Primeiro desenvolvi este projeto sem a autenticação e gravei um vídeo que pode ser assistido clicando [aqui](https://youtu.be/RVVYuSteLdo), depois acabei implementado a questão da autenticação, com a API recusando solicitações caso o usuário não possua um token válido, e o vídeo demonstrando como ficou o projeto pode ser visto [clicando aqui](https://youtu.be/hxchZEgVFpg). Realizei o deploy do projeto na Heroku, [clique aqui](https://myfirstrestapiconsumer.herokuapp.com/) para acessá-lo.
